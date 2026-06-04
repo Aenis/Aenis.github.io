@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aenis Rostane — Senior Operations & Supply Chain Executive</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --surface2: #1a1a1a;
+    --border: #2a2a2a;
+    --gold: #c9a96e;
+    --gold-light: #e8c98a;
+    --text: #e8e4dc;
+    --muted: #888;
+    --accent: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .name-block h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .name-block h1 span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .name-block .title {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: right;
+    padding-top: 8px;
+  }
+
+  .contact-block a,
+  .contact-block span {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-block a:hover { color: var(--gold); }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .contact-item svg {
+    width: 13px;
+    height: 13px;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  /* ─── SUMMARY ─── */
+  .summary {
+    padding: 48px 0 40px;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.9s 0.15s ease both;
+  }
+
+  .summary p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 2.5vw, 21px);
+    font-weight: 300;
+    color: #c8c2b8;
+    line-height: 1.65;
+    max-width: 760px;
+  }
+
+  .summary p em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* ─── STATS ROW ─── */
+  .stats {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.9s 0.25s ease both;
+  }
+
+  .stat {
+    flex: 1;
+    padding: 32px 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat .label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .exp-item:last-child { margin-bottom: 0; }
+
+  .exp-meta {
+    padding-top: 4px;
+  }
+
+  .exp-period {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .exp-content {}
+
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .exp-sub {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    opacity: 0.8;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: #a09890;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .achievements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .achievements li {
+    font-size: 13.5px;
+    color: #b8b0a6;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .achievements li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+
+  .highlight {
+    display: inline-block;
+    background: rgba(201,169,110,0.1);
+    color: var(--gold-light);
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+
+  /* ─── COMPETENCIES GRID ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+
+  .skill-tag {
+    padding: 14px 18px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: #a09890;
+    position: relative;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .skill-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .skill-tag:hover {
+    border-color: rgba(201,169,110,0.4);
+    color: var(--text);
+  }
+
+  .skill-tag:hover::before { opacity: 1; }
+
+  /* ─── TECH SKILLS ─── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .tech-group h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-tag {
+    padding: 5px 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    color: #a09890;
+    border-radius: 2px;
+  }
+
+  /* ─── EDUCATION ─── */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .edu-year {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    padding-top: 4px;
+  }
+
+  .edu-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ─── LANGUAGES ─── */
+  .lang-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .lang-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .lang-name {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .lang-level {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .lang-dots {
+    display: flex;
+    gap: 5px;
+    margin-top: 4px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .dot.filled { background: var(--gold); }
+
+  /* ─── CERTIFICATIONS ─── */
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+
+  .cert-item:last-child { border-bottom: none; }
+
+  .cert-name { color: #c0b8ae; }
+
+  .cert-date {
+    font-size: 11px;
+    color: var(--gold);
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 40px 0 0;
+    text-align: center;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  footer p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+  section:nth-child(4) { animation-delay: 0.4s; }
+  section:nth-child(5) { animation-delay: 0.5s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 680px) {
+    .container { padding: 0 20px 60px; }
+    .header-top { flex-direction: column; }
+    .contact-block { text-align: left; }
+    .contact-item { justify-content: flex-start; }
+    .exp-item, .edu-item { grid-template-columns: 1fr; gap: 8px; }
+    .stats { flex-wrap: wrap; }
+    .stat { min-width: 33%; }
+    .tech-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div class="name-block">
+        <h1>Aenis<span>Rostane</span></h1>
+        <p class="title">Senior Operations &amp; Supply Chain Executive</p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Oran, Algeria</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+213541457328">+213 541 457 328</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:aenisbis@gmail.com">aenisbis@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <p>Operations and supply chain management professional with over <em>20 years of progressive experience</em>, including the complete creation of a turnkey factory and management of procurements exceeding <em>$93M</em>. Delivering projects within deadlines and budgets with demonstrated P&amp;L accountability and strategic business planning expertise across manufacturing, telecommunications, and international trade.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="number">20+</div>
+      <div class="label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="number">$93M+</div>
+      <div class="label">Procurement Managed</div>
+    </div>
+    <div class="stat">
+      <div class="number">3</div>
+      <div class="label">Continents</div>
+    </div>
+    <div class="stat">
+      <div class="number">20+</div>
+      <div class="label">Projects Delivered</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-header">
+      <span class="section-label">Professional Experience</span>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- HASNAOUI -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Dec 2025 — Present</div>
+        <div class="exp-company">HASNAOUI Group<br>Group Purchasing Center<br>Oran, Algeria</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Senior Import Operations Manager</div>
+        <ul class="achievements">
+          <li>Managing import operations for 3 strategic hospital infrastructure projects simultaneously</li>
+          <li>Sourcing &amp; negotiation with international suppliers — monitoring and coordination</li>
+          <li>Technical validation: interface between design offices and suppliers, compliance verification</li>
+          <li>Development of dashboards (scheduling, traceability, KPIs) to improve responsiveness</li>
+          <li>Implemented centralized multi-project reporting system from day one</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EVACOOL -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Dec 2024 — Dec 2025</div>
+        <div class="exp-company">EURL EVACOOL<br>Sidi Bel Abbès, Algeria<br><em style="font-size:11px;color:#666;">1-year mission</em></div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Director of Operations</div>
+        <div class="exp-sub">Turnkey Business Creation — Project Manager</div>
+        <p class="exp-desc">Architect and Project Manager for the complete creation of a heat exchanger manufacturing plant, from initial design to operational turnkey delivery.</p>
+        <ul class="achievements">
+          <li>Complete leadership from feasibility study (market analysis, financial projections, risk assessment) to operational delivery</li>
+          <li>International procurement across three continents including a one-month field mission to China</li>
+          <li>Negotiation and signing of multi-million dollar contracts with industrial equipment suppliers</li>
+          <li>Designed and implemented full industrial infrastructure (electrical, compressed air, gas distribution networks)</li>
+          <li>Recruited and built the full management team: production, quality, maintenance, procurement, logistics</li>
+          <li>Developed 5-year strategic business plan and capital investment strategy</li>
+        </ul>
+        <span class="highlight">Full P&amp;L responsibility — $13M manufacturing operation</span>
+      </div>
+    </div>
+
+    <!-- OUEST EQUIPEMENT -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Apr 2021 — Dec 2024</div>
+        <div class="exp-company">Ouest Equipement<br>Sidi Bel Abbès, Algeria</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Procurement Director</div>
+        <ul class="achievements">
+          <li>Strategic supplier change ensuring quality, generating <strong style="color:var(--gold-light)">$330,000 in annual savings</strong></li>
+          <li>50% improvement in On-Time Delivery (OTD) and optimized discount negotiation</li>
+          <li>Coordination of international shipments and imports management</li>
+          <li>Implementation of internal management system and procedure development</li>
+          <li>Selected to lead the InnoDev project — German-Algerian green and inclusive promotion initiative</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DIGIWEST PROCUREMENT -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Mar 2014 — Jun 2021</div>
+        <div class="exp-company">Digiwest Telecommunications<br>Oran, Algeria</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Procurement and Supply Manager</div>
+        <ul class="achievements">
+          <li>Developed procurement plans optimizing cost-effectiveness and process alignment</li>
+          <li>Applied Lean principles, <strong style="color:var(--gold-light)">reducing supplier cycle by 45%</strong> and costs by 25%</li>
+          <li>Implemented SLAs improving team performance and reducing processing time by 40%</li>
+          <li>Used analytics to strategically drive procurement aligned with organizational objectives</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DIGIWEST ENGINEER -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Feb 2011 — Feb 2014</div>
+        <div class="exp-company">Digiwest Telecommunications<br>Oran, Algeria</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Project Engineer</div>
+        <ul class="achievements">
+          <li>Delivered over 20 projects (&gt;$4M USD) within budget-schedule-quality constraints</li>
+          <li>Clients: Algerie Telecom, Ooredoo, Djezzy — leading teams of 30+ people</li>
+          <li>Design to deployment of network infrastructure (fiber optics, servers, firewalls, security)</li>
+          <li>25% business growth over 3 years through successful execution and strong customer satisfaction</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- UNILEVER SUPERVISOR -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Mar 2007 — Dec 2010</div>
+        <div class="exp-company">Unilever Algeria</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Import Operations Supervisor</div>
+        <p class="exp-desc">Reporting directly to the General Manager, supervised all logistics import operations for this consumer goods multinational.</p>
+        <ul class="achievements">
+          <li>Management of all customs and commercial documentation ensuring cost accuracy</li>
+          <li>Reduced customs clearance times — <strong style="color:var(--gold-light)">+7% profits through efficiency gains</strong></li>
+          <li>23% savings through strategic cost and supplier management</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- UNILEVER ANALYST -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Jun 2004 — Feb 2007</div>
+        <div class="exp-company">Unilever Algeria</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-title">Data Analyst</div>
+        <ul class="achievements">
+          <li>Developed dashboards and reports covering 1,450+ shipments with real-time alerts</li>
+          <li>Optimized inventory management, doubling efficiency and reducing errors by 28%</li>
+          <li>Provided support for strategic analysis — qualitative data collection and processing</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- KEY COMPETENCIES -->
+  <section>
+    <div class="section-header">
+      <span class="section-label">Key Competencies</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-tag">Strategic Procurement &amp; Contract Negotiation</div>
+      <div class="skill-tag">Strategic Business Planning &amp; Execution</div>
+      <div class="skill-tag">P&amp;L Management &amp; Financial Accountability</div>
+      <div class="skill-tag">International Supply Chain Management</div>
+      <div class="skill-tag">Turnkey Project Management</div>
+      <div class="skill-tag">Continuous Improvement &amp; Lean Manufacturing</div>
+      <div class="skill-tag">Safety Culture &amp; Leadership</div>
+      <div class="skill-tag">Cross-continental Supplier Sourcing</div>
+      <div class="skill-tag">Team Building &amp; Organizational Development</div>
+      <div class="skill-tag">Risk Assessment &amp; Mitigation</div>
+      <div class="skill-tag">Incoterms &amp; Documentary Credits</div>
+      <div class="skill-tag">KPI Dashboard Development</div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section>
+    <div class="section-header">
+      <span class="section-label">Technical Skills</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-group">
+        <h4>ERP Systems</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">SAP</span>
+          <span class="tech-tag">QAD</span>
+          <span class="tech-tag">MS Dynamics 365</span>
+          <span class="tech-tag">Odoo</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <h4>Data &amp; Analytics</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">Excel</span>
+          <span class="tech-tag">Power BI</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">NoSQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTIFICATIONS -->
+  <section>
+    <div class="section-header">
+      <span class="section-label">Education</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2003</div>
+      <div>
+        <div class="edu-title">Engineering Degree in Computer Science</div>
+        <div class="edu-school">Artificial Intelligence Specialization · University of Science and Technology Mohamed Boudiaf, Oran</div>
+      </div>
+    </div>
+
+    <div style="height:32px"></div>
+
+    <div class="section-header" style="margin-bottom: 24px;">
+      <span class="section-label">Certifications</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="cert-list">
+      <div class="cert-item">
+        <span class="cert-name">ISO 9001:2015 &amp; Internal Audit Training — BAIHA CONSULTING</span>
+        <span class="cert-date">Jul 2024</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Professional Certification in Cryptography — Ministry of Telecommunications</span>
+        <span class="cert-date">Nov 2013</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Network &amp; Telecommunications Technician — Higher Institute of Electronics, Oran</span>
+        <span class="cert-date">2009–2011</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Certified Internal Quality Auditor (OHSAS 18001 / ISO 9001) — Unilever Academy, Algiers</span>
+        <span class="cert-date">Apr 2005</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section style="border-bottom: none;">
+    <div class="section-header">
+      <span class="section-label">Languages</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="lang-row">
+      <div class="lang-item">
+        <span class="lang-name">Arabic</span>
+        <span class="lang-level">Native</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">French</span>
+        <span class="lang-level">Fluent — Professional</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <span class="lang-level">Advanced — Professional</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Aenis Rostane &nbsp;·&nbsp; aenisbis@gmail.com &nbsp;·&nbsp; +213 541 457 328</p>
+  </footer>
+
+</div>
+</body>
+</html>
